@@ -1,10 +1,14 @@
 import gc from "../config/index.js";
 import { format } from "util";
+import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config();
 
-const bucket = gc.bucket("node-bucket-1");
+const bucket = gc.bucket(process.env.BUCKET_ID);
 
 const uploader = (file) =>
   new Promise((resolve, reject) => {
+    if (!file) reject("No file received");
+    console.log(file);
     const { originalname, buffer } = file;
 
     const blob = bucket.file(originalname.replace(/ /g, "_"));
@@ -18,7 +22,8 @@ const uploader = (file) =>
         );
         resolve(publicUrl);
       })
-      .on("error", () => {
+      .on("error", (err) => {
+        console.log(err);
         reject(`Unable to upload image, something went wrong`);
       })
       .end(buffer);
