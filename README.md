@@ -18,8 +18,17 @@ Run `npm run dev` to start up the server. You can now make http requests to [htt
 
 ## Database Setup
 
-Create a MySQL instance in CloudSQL then open up the console in Google cloud to connect to the instance. Then run the script inside of the sql folder to create the tables.
+Create a MySQL instance in CloudSQL then open up the console in Google cloud to connect to the instance. Then run the `tables.sql` script inside of the sql folder to create the tables.
+
 To connect to your CloudSQL database while running the app locally you must have a .env file with the `DB_HOST`, `DB_DATABASE`, `DB_USER`, and `DB_PASS` values.
-Also you will need to whitelist your computer's public ip address so that GCP will let you connect. You can do this by going to your instance in the Google Cloud console and clicking on Connections -> Authorized Networks -> Add Network.
+
+```sh
+DB_HOST= Public IP address of instance
+DB_DATABASE= DB name here
+DB_USER= username
+DB_PASS= password
+```
+
+Also you will need to whitelist your computer's public ip address so that GCP will let you connect. You can do this by going to your instance in the Google Cloud console and clicking on Connections -> Authorized Networks -> Add Network then put in your ip address.
 
 
