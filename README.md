@@ -31,4 +31,6 @@ DB_PASS= password
 
 Also you will need to whitelist your computer's public ip address so that GCP will let you connect. You can do this by going to your instance in the Google Cloud console and clicking on Connections -> Authorized Networks -> Add Network then put in your ip address.
 
+Run `npm run dev` to start up the server. You can now make http POST requests to [http:localhost:5000/user](http:localhost:5000/user) with a request body that includes `{password: -, first_name: -, last_name: -}` to add a row to the `user` table. The response will return the generated user id that you can then use to query for the user's information by sending a GET to [http:localhost:5000/user/{user_id}](http:localhost:5000/user/user_id)
+
 
