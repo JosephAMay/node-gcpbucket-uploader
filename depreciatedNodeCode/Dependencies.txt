@@ -1,0 +1,10 @@
+https://www.youtube.com/watch?v=Y2ec4KQ7mP8
+
+npm init -y
+npm i express cookie-parser dotenv ejs
+npm i -D nodemon
+
+
+In google dev console
+Api& services -> Credentials -> create credentials -> Oauth client id
+ 
